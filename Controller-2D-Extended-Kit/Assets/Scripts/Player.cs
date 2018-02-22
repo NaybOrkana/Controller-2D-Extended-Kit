@@ -77,25 +77,24 @@ public class Player : MonoBehaviour
 		if (m_WallSliding) 
 		{
 			// The player wall climbs Megaman-Style if jumping against a wall and it is holding the same direction as it is touching the wall.
-			if (m_WallDirX == m_DirectionalInput.x) 
-			{
-				m_Velocity.x = -m_WallDirX * m_WallJumpClimbing.x;
-				m_Velocity.y = m_WallJumpClimbing.y;
-			}
+//			if (m_WallDirX == m_DirectionalInput.x) 
+//			{
+//				m_Velocity.x = -m_WallDirX * m_WallJumpClimbing.x;
+//				m_Velocity.y = m_WallJumpClimbing.y;
+//			}
 
 			// The player will kick itself out of the wall if the jump button is pressed while sliding but no direction is held.
-			else if (m_DirectionalInput.x == 0)
-			{
-				m_Velocity.x = -m_WallDirX * m_WallJumpOff.x;
-				m_Velocity.y = m_WallJumpOff.y;
-			}
+//			if (m_DirectionalInput.x == 0)
+//			{
+//				m_Velocity.x = -m_WallDirX * m_WallJumpOff.x;
+//				m_Velocity.y = m_WallJumpOff.y;
+//			}
 
 			// If the player is holding the other direction while wall sliding it will perform a wall leap Mario-Style
-			else 
-			{
+
 				m_Velocity.x = -m_WallDirX * m_WallLeap.x;
 				m_Velocity.y = m_WallLeap.y;
-			}
+			
 		}
 
 		// Normal jumping on the ground

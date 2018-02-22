@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent (typeof (RaycastController))]
 public class PlaformController : MonoBehaviour 
 {
 	public LayerMask m_PassengerMask;

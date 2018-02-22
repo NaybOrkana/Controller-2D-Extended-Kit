@@ -208,6 +208,13 @@ public class Controller2D : MonoBehaviour
 					GoalManager.m_ReachedGoal = true;
 				}
 
+				if (hit.collider.tag == "Destructor") 
+				{
+					Player.m_CanMove = false;
+					FindObjectOfType<ClockController> ().m_StopTheClock = true;
+					FindObjectOfType<GameOverManager> ().OnGameOver ();
+				}
+
 				velocity.y = (hit.distance - RaycastController.m_SkinWidth) * directionY;
 				rayLength = hit.distance;
 
@@ -322,7 +329,7 @@ public class Controller2D : MonoBehaviour
 			// And we know this values via the angle so: X = Y - Hit Distance (cause the player may still be on the air when the ray hits) / Tan of the angle.
 			if (slopeAngle > m_MaxSlopeAngle)
 			{
-				velocity.x = Mathf.Sign(hit.normal.x) * (Mathf.Abs (velocity.y) - hit.distance) / Mathf.Tan (slopeAngle * Mathf.Deg2Rad);
+				velocity.x = Mathf.Sign(hit.normal.x) * (Mathf.Abs (velocity.y / 1.3f) - hit.distance) / Mathf.Tan (slopeAngle * Mathf.Deg2Rad);
 
 				m_CollisionInfo.slopeAngle = slopeAngle;
 				m_CollisionInfo.slidingDownMaxSlope = true;

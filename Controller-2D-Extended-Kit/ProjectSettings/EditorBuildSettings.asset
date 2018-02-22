@@ -9,5 +9,11 @@ EditorBuildSettings:
     path: Assets/Scenes/Menu.unity
     guid: 1e071cfbc81ad034ea96069b9fab83ab
   - enabled: 1
-    path: Assets/Scenes/CameraScene.unity
-    guid: b60ae14fb980a2d4196803c244c623f6
+    path: Assets/Scenes/LevelSelect.unity
+    guid: 5bc9522182d719e45b4a27432f7244cc
+  - enabled: 1
+    path: Assets/Scenes/Level00.unity
+    guid: ece4243d9cade8748a4a95b85e24c325
+  - enabled: 1
+    path: Assets/Scenes/Level01.unity
+    guid: 2e0ab6e027ea0904ebdfe90d011cf151

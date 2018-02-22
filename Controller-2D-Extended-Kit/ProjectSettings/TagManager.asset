@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Through
   - Goal
+  - Destructor
   layers:
   - Default
   - TransparentFX

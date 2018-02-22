@@ -6,21 +6,26 @@ using UnityEngine.SceneManagement;
 public class PauseMenu : MonoBehaviour
 {
 	public static bool m_IsGamePaused = false;
+	public static bool m_CanGameBePaused = true;
 
 	public GameObject m_PauseMenuUI;
+	public SceneFader m_SceneFader;
 	public string m_SceneToLoad;
 
 	private void Update()
 	{
-		if (Input.GetKeyDown(KeyCode.Escape)) 
+		if (m_CanGameBePaused) 
 		{
-			if (m_IsGamePaused) 
+			if (Input.GetKeyDown(KeyCode.Escape)) 
 			{
-				Resume ();
-			} 
-			else
-			{
-				Pause ();
+				if (m_IsGamePaused) 
+				{
+					Resume ();
+				} 
+				else
+				{
+					Pause ();
+				}
 			}
 		}
 	}
@@ -46,10 +51,11 @@ public class PauseMenu : MonoBehaviour
 	public void LoadMenu()
 	{
 		GoalManager.m_ReachedGoal = false;
+		m_CanGameBePaused = true;
 		
 		Resume ();
 
-		SceneManager.LoadScene (m_SceneToLoad);
+		m_SceneFader.FadeTo(m_SceneToLoad);
 	}
 
 	public void QuitGame()
